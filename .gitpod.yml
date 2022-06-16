@@ -9,10 +9,8 @@ tasks:
       eval "$(sudo /opt/conda/bin/python -m conda init --dev bash)"
       sudo su root -c "/opt/conda/bin/conda install -yq conda-build"
       conda install --file requirements.txt
-    command: |
-      eval "$(sudo /opt/conda/bin/python -m conda init --dev bash)"
       cd notebooks
-      for f in *.ipynb; do jupyter nbconvert --execute --to notebook --inplace "$f"; done
+    command: for f in *.ipynb; do jupyter nbconvert --execute --to notebook --inplace "$f"; done
 
 vscode:
   extensions:
